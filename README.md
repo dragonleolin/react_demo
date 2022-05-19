@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+## 製作WEB3網頁
+成品影片: https://drive.google.com/file/d/1PYOFa4WmfoT_Dc8joEFvNQkxhNDNJo9w/view?usp=sharing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 建立一個React專案
 
-## Available Scripts
+### 取得ABI
+智能合約初始化
+1. 合約地址: ABI的網址
+2. 合約ABI: 資料型別跟資料
 
-In the project directory, you can run:
+取得JSON
+1. 到 [Remix IDE](http://remix.ethereum.org/#optimize=true&runs=200&evmVersion=null&version=soljson-v0.8.7+commit.e28d00a7.js)
+2. 把Auto compile跟Enable optimization打勾，執行Compile1_Storage.sol
+3. 點到COPY ABI
 
-### `npm start`
+![](https://i.imgur.com/D2Lo24K.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 到METAMASK創建錢包
+用CONSOLE可輸入window.ethereum取得資訊
 
-### `npm test`
+### 錢包連到本地的VSCODE
+安裝remixed
+npm install @remix-project/remixd
+文件:https://remix-ide.readthedocs.io/en/latest/remixd.html
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+輸入 remixd -s $(echo $PWD) --remix-ide https://remix.ethereum.org ，會是在現在的資料夾底下開啟同步到https://remix.ethereum.org，一個共享storage的概念。
+OR
+輸入 remixd -s D:\GitHub\react_demo -u http://remix.ethereum.org 連到本地位置
 
-### `npm run build`
+### 先去把小狐狸進行測試充值
+用測試的方式進行存錢
+參考文件: https://bigbenthings.com/smart-contract-solidity-nft/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 安裝hardhat
+參考文件: https://medium.com/my-blockchain-development-daily-journey/%E5%AE%8C%E6%95%B4%E7%9A%84hardhat%E5%AF%A6%E8%B8%90%E6%95%99%E7%A8%8B-a9b005aa4c12
+輸入 npm i hardhat
+做區塊鏈開發的一個框架，可以快速編譯智能合約跟寫智能合約測試
+有許多plugin可以使用
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+執行greet()會回傳一個String
+進行編譯，勾Enable optimization就可以。
+![](https://i.imgur.com/4CEa9k2.png)
+進行部屬，選取Injected Web3，在Deploy，成功後會出現在左下角可以複製，按右邊的view on etherscan
+![](https://i.imgur.com/YYBuT09.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 智能合約
+點選 Contract 的路徑
+![](https://i.imgur.com/NuN0YGt.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+先點到Contact內有 Verify and Publish點進去
+![](https://i.imgur.com/mE5v0w9.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+在第二個選項選 Solidity(Single file)，要對應到0.8.0跟Unlicense，點選continue。
+![](https://i.imgur.com/syqEQLn.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+到這個頁面在Optimization選yes，複製remix的Greeter.sol的內容放到Enter the Solidity Contract Code below *的輸入區內，點選Verify and Publish，如果不能放上去直接複製0xcdc6fc93d3910c0d1581fc129bd7658d2deac575。
+![](https://i.imgur.com/RR975Po.png)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 另一個取得智能合約的方式
+1. 到hardhat-tutorial的資料夾下，輸入npx hardhat compile
+2. 編譯完後，會在/contracts/artifacts/Greet.json
+3. 可以找到abi的資訊，會有setGreeting()。
+![](https://i.imgur.com/LuqD6MA.png)
+4. 到remix
+可以用setGreeting 把內容字取代掉
