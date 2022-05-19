@@ -1,4 +1,5 @@
 ## 製作WEB3網頁
+教學來源: https://www.youtube.com/watch?v=7HoHkRz0Odc&ab_channel=%E8%80%81%E9%97%86%2C%E4%BE%86%E9%BB%9E%E5%AF%87%E6%B1%80%E5%90%A7%E3%80%82Boss%2CCODINGplease.
 成品影片: https://drive.google.com/file/d/1PYOFa4WmfoT_Dc8joEFvNQkxhNDNJo9w/view?usp=sharing
 
 ### 建立一個React專案
