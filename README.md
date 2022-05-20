@@ -3,7 +3,9 @@
 
 ### 成品影片: https://drive.google.com/file/d/1PYOFa4WmfoT_Dc8joEFvNQkxhNDNJo9w/view?usp=sharing
 
-### 建立一個React專案
+### 啟用專案
+1. npm start
+2. remixd -s $(echo $PWD) --remix-ide https://remix.ethereum.org
 
 ### 取得ABI
 智能合約初始化
